@@ -1,0 +1,10 @@
+- Instalacao 
+	1. Ter o node e o npm instalado
+	2. Instalar o vue
+		npm install -g @vue/cli
+- Criar projeto 
+	1. vue create nomeProjeto 
+- Rodar a aplicacao 
+	1. npm run serve 
+- Instalar a biblioteca  
+	1. npm install primevue 
