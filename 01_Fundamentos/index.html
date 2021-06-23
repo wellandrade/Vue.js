@@ -16,6 +16,25 @@
 <body>
     <div id="hello-world">
         <fieldset>
+            <legend>Eventos</legend>
+            <div>
+                <button v-on:click="eventTest('click')">On Click</button>
+                <button @click="eventTestParam('@click', $event)">On Click Para Explicit</button>
+                <button @dblclick="eventTest('dbl click')">On Double Click</button>
+                <button @click.left="eventMouseTest">Click Left</button>
+                <button @click.right.prevent="eventMouseTest">Click Right</button>
+                <button @click.middle="eventMouseTest">Click Middle</button>
+            </div>
+            <br>
+            <div>
+                <input type="text" @keyup.enter="eventKeyTest" placeholder="Aberte o enter">
+                <input type="text" @keydown.enter="eventKeyTest" placeholder="Aberte o enter">
+            </div>
+            <p @click.ctrl="eventTest('crtl + click')">Ctrl + Click</p>
+            <p @click.ctrl.exact="eventTest('crtl + click')">Disparar somente quando for Crtl + Click</p>
+        </fieldset>
+
+        <fieldset>
             <legend>Template</legend>
 
             <div v-html="htmlContent"></div> <!-- Para renderizar um conteudo HTML -->
@@ -145,7 +164,7 @@
                 <p v-pre> {{ firstName }}</p>
             </fieldset>
             <br>
-          
+
             <fieldset>
                 <legend>v-cloak</legend>
                 <p>Com a regra CSS de display none, o valor só aparece na tela depois que é renderizado</p>
@@ -191,6 +210,19 @@
                 },
                 getFullName() {
                     return `${this.firstName} ${this.lastName}`
+                },
+                eventTest(name) {
+                    console.log(name);
+                },
+                eventTestParam(name, event) {
+                    console.log(name);
+                    console.log(event);
+                },
+                eventMouseTest(event) {
+                    console.log(event.type);
+                },
+                eventKeyTest(event) {
+                    console.log(event.key, event.type);
                 }
             },
             computed: { // Para nao deixar alguma logica dentro do template 
