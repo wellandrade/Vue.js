@@ -10,11 +10,26 @@
         [v-cloak] {
             display: none;
         }
+
+        .test-class-1 {
+            font-style: italic;
+        }
+
+        .test-class-2 {
+            color: blue;
+        }
     </style>
 </head>
 
 <body>
     <div id="hello-world">
+        <fieldset>
+            <legend>Estilos</legend>
+            <p :style="{ color: textColor }">Inline style property</p>
+            <p :style="textColorObject">Inline style property</p>
+            <p class="test-class-1" :class="classTeste2">Lorem ipsum, dolor sit amet consectetur</p>
+        </fieldset>
+        <br>
         <fieldset>
             <legend>Eventos</legend>
             <div>
@@ -198,7 +213,14 @@
                     argument: 'title',
                     check: true,
                     selectedOption: 0,
-                    selectedCar: {}
+                    selectedCar: {},
+                    textColor: 'red',
+                    textColorObject: {
+                        color: 'green',
+                        fontSize: '25px'
+                    },
+                    classTeste1: 'test-class-1',
+                    classTeste2: 'test-class-2',
                 }
             },
             methods: {
